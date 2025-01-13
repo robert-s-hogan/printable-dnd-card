@@ -2,17 +2,65 @@ export const characterData = {
   gargoyleBlue: {
     name: "Blue Gargoyle",
     stats: [
-      { name: "AC", base: "12", modifier: null },
-      { name: "Hit Points", base: "12", modifier: null },
-      { name: "Strength", base: 14, modifier: 2 },
-      { name: "Dexterity", base: 8, modifier: 0 },
-      { name: "Constitution", base: 16, modifier: 3 },
-      { name: "Intelligence", base: 6, modifier: -1 },
-      { name: "Wisdom", base: 10, modifier: 0 },
-      { name: "Charisma", base: 6, modifier: -1 },
+      {
+        name: "AC",
+        base: 12,
+        modifier: 0,
+        modifierDescription: "", // No meaningful modifier
+      },
+      {
+        name: "Hit Points",
+        base: 12,
+        modifier: 0,
+        modifierDescription: "", // No meaningful modifier
+      },
+      {
+        name: "Strength",
+        base: 12,
+        modifier: 2,
+        modifierDescription: "Initial +2",
+      },
+      {
+        name: "Dexterity",
+        base: 8,
+        modifier: -1,
+        modifierDescription: "Initial -1",
+      },
+      {
+        name: "Constitution",
+        base: 14,
+        modifier: 3,
+        modifierDescription: "Initial +2, Racial +1",
+      },
+      {
+        name: "Intelligence",
+        base: 6,
+        modifier: -2,
+        modifierDescription: "Initial -2",
+      },
+      {
+        name: "Wisdom",
+        base: 10,
+        modifier: 0,
+        modifierDescription: "", // No meaningful modifier
+      },
+      {
+        name: "Charisma",
+        base: 6,
+        modifier: -2,
+        modifierDescription: "Initial -2",
+      },
     ],
     resourceType: "Mana",
     resourceSlots: 5,
+    racials: [
+      { name: "+2 Constitution", icon: "mdi-shield-plus" },
+      { name: "Stone Resilience", icon: "mdi-rock" },
+    ],
+    vulnerabilities: [
+      { name: "Cold Damage", icon: "mdi-snowflake" },
+      { name: "Radiant Damage", icon: "mdi-white-balance-sunny" },
+    ],
     abilities: [
       {
         name: "Claw Attack",
@@ -64,21 +112,70 @@ export const characterData = {
         color: "text-sky-400",
       },
     ],
+    avatar: "",
   },
   direWolfOrange: {
     name: "Orange Dire Wolf",
     stats: [
-      { name: "AC", base: "12", modifier: null },
-      { name: "Hit Points", base: "10", modifier: null },
-      { name: "Strength", base: 16, modifier: 3 },
-      { name: "Dexterity", base: 14, modifier: 2 },
-      { name: "Constitution", base: 12, modifier: 1 },
-      { name: "Intelligence", base: 6, modifier: -1 },
-      { name: "Wisdom", base: 10, modifier: 0 },
-      { name: "Charisma", base: 8, modifier: 0 },
+      {
+        name: "AC",
+        base: 12,
+        modifier: 0,
+        modifierDescription: "", // No meaningful modifier
+      },
+      {
+        name: "Hit Points",
+        base: 10,
+        modifier: 0,
+        modifierDescription: "", // No meaningful modifier
+      },
+      {
+        name: "Strength",
+        base: 14,
+        modifier: 3,
+        modifierDescription: "Initial +2, Racial +1",
+      },
+      {
+        name: "Dexterity",
+        base: 14,
+        modifier: 2,
+        modifierDescription: "Initial +2",
+      },
+      {
+        name: "Constitution",
+        base: 12,
+        modifier: 1,
+        modifierDescription: "Initial +1",
+      },
+      {
+        name: "Intelligence",
+        base: 6,
+        modifier: -2,
+        modifierDescription: "Initial -2",
+      },
+      {
+        name: "Wisdom",
+        base: 10,
+        modifier: 0,
+        modifierDescription: "", // No meaningful modifier
+      },
+      {
+        name: "Charisma",
+        base: 8,
+        modifier: -1,
+        modifierDescription: "Initial -1",
+      },
     ],
     resourceType: "Energy",
     resourceSlots: 4,
+    racials: [
+      { name: "+2 Strength", icon: "mdi-paw" },
+      {
+        name: "Pack Tactics: Advantage on attack rolls when an ally is within 5 feet",
+        icon: "mdi-account-group",
+      },
+    ],
+    vulnerabilities: [{ name: "Fire Damage", icon: "mdi-fire" }],
     abilities: [
       {
         name: "Bite",
@@ -130,21 +227,73 @@ export const characterData = {
         color: "text-red-700",
       },
     ],
+    avatar: "",
   },
   shadowhoofMystic: {
     name: "Shadowhoof Mystic",
     stats: [
-      { name: "AC", base: "11 + Dex Modifier", modifier: null },
-      { name: "Hit Points", base: "10 + Con Modifier", modifier: null },
-      { name: "Strength", base: 10, modifier: 0 },
-      { name: "Dexterity", base: 14, modifier: 2 },
-      { name: "Constitution", base: 12, modifier: 1 },
-      { name: "Intelligence", base: 16, modifier: 3 },
-      { name: "Wisdom", base: 14, modifier: 2 },
-      { name: "Charisma", base: 8, modifier: -1 },
+      {
+        name: "AC",
+        base: 11,
+        modifier: 2,
+        modifierDescription: "Initial +2 from Dexterity",
+      },
+      {
+        name: "Hit Points",
+        base: 10,
+        modifier: 1,
+        modifierDescription: "Initial +1 from Constitution",
+      },
+      {
+        name: "Strength",
+        base: 10,
+        modifier: 0,
+        modifierDescription: "", // No meaningful modifier
+      },
+      {
+        name: "Dexterity",
+        base: 14,
+        modifier: 2,
+        modifierDescription: "Initial +2",
+      },
+      {
+        name: "Constitution",
+        base: 12,
+        modifier: 1,
+        modifierDescription: "Initial +1",
+      },
+      {
+        name: "Intelligence",
+        base: 14,
+        modifier: 3,
+        modifierDescription: "Initial +2, Racial +1",
+      },
+      {
+        name: "Wisdom",
+        base: 13,
+        modifier: 2,
+        modifierDescription: "Initial +1, Racial +1",
+      },
+      {
+        name: "Charisma",
+        base: 8,
+        modifier: -1,
+        modifierDescription: "Initial -1",
+      },
     ],
     resourceType: "Mana",
     resourceSlots: 6,
+    racials: [
+      { name: "+1 Intelligence", icon: "mdi-book-open-variant" },
+      { name: "+1 Wisdom", icon: "mdi-eye" },
+      {
+        name: "Shadow Step: Can teleport in dim light or darkness",
+        icon: "mdi-lightbulb-off",
+      },
+    ],
+    vulnerabilities: [
+      { name: "Radiant Damage", icon: "mdi-white-balance-sunny" },
+    ],
     abilities: [
       {
         name: "Hoof Strike",
@@ -196,21 +345,71 @@ export const characterData = {
         color: "text-indigo-500",
       },
     ],
+    avatar: "",
   },
   shieldedSentinel: {
     name: "Shielded Sentinel",
     stats: [
-      { name: "AC", base: "16 + Shield Bonus", modifier: null },
-      { name: "Hit Points", base: "14 + Con Modifier", modifier: null },
-      { name: "Strength", base: 14, modifier: 2 },
-      { name: "Dexterity", base: 10, modifier: 0 },
-      { name: "Constitution", base: 14, modifier: 2 },
-      { name: "Intelligence", base: 8, modifier: -1 },
-      { name: "Wisdom", base: 12, modifier: 1 },
-      { name: "Charisma", base: 10, modifier: 0 },
+      {
+        name: "AC",
+        base: 14,
+        modifier: 2,
+        modifierDescription: "Initial +2 from shield",
+      },
+      {
+        name: "Hit Points",
+        base: 14,
+        modifier: 0,
+        modifierDescription: "", // No meaningful modifier
+      },
+      {
+        name: "Strength",
+        base: 12,
+        modifier: 2,
+        modifierDescription: "Initial +2",
+      },
+      {
+        name: "Dexterity",
+        base: 10,
+        modifier: 0,
+        modifierDescription: "", // No meaningful modifier
+      },
+      {
+        name: "Constitution",
+        base: 12,
+        modifier: 2,
+        modifierDescription: "Initial +2",
+      },
+      {
+        name: "Intelligence",
+        base: 8,
+        modifier: -1,
+        modifierDescription: "Initial -1",
+      },
+      {
+        name: "Wisdom",
+        base: 12,
+        modifier: 1,
+        modifierDescription: "Initial +1",
+      },
+      {
+        name: "Charisma",
+        base: 10,
+        modifier: 0,
+        modifierDescription: "", // No meaningful modifier
+      },
     ],
     resourceType: "Stamina",
     resourceSlots: 4, // Represents stamina points for defensive maneuvers
+    racials: [
+      { name: "+2 Strength", icon: "mdi-arm-flex" },
+      { name: "+1 Constitution", icon: "mdi-shield-plus" },
+      {
+        name: "Defender's Instinct: Gain +1 AC when adjacent to allies",
+        icon: "mdi-shield-account",
+      },
+    ],
+    vulnerabilities: [{ name: "Psychic Damage", icon: "mdi-brain" }],
     abilities: [
       {
         name: "Sword Slash",
@@ -262,5 +461,6 @@ export const characterData = {
         color: "text-green-500",
       },
     ],
+    avatar: "",
   },
 };

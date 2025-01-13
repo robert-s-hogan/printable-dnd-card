@@ -11,6 +11,9 @@
       :resourceType="character.resourceType"
       :resourceSlots="character.resourceSlots"
       :showImage="false"
+      :racials="character.racials"
+      :vulnerabilities="character.vulnerabilities"
+      :avatar="character.avatar"
     />
   </div>
 </template>

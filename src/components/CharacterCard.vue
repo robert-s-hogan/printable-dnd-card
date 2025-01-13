@@ -24,27 +24,95 @@
 
         <!-- Stats Section -->
         <div class="stats mb-4">
-          <div class="grid grid-cols-4 gap-4">
-            <div
-              v-for="(stat, index) in stats"
-              :key="index"
-              class="flex flex-col items-center"
-            >
+          <div class="grid grid-cols-5 gap-4 items-center">
+            <!-- First Stat Block (2x2) -->
+            <div class="grid grid-cols-2 gap-4 col-span-2">
               <div
-                class="circle w-16 h-16 border-2 border-gray-500 rounded-full flex items-center justify-center text-xl font-bold"
+                v-for="(stat, index) in stats.slice(0, 4)"
+                :key="index"
+                class="flex flex-col items-center"
               >
-                &nbsp;
+                <div
+                  class="circle w-16 h-16 border-2 border-gray-500 rounded-full flex items-center justify-center text-xl font-bold"
+                >
+                  &nbsp;
+                </div>
+                <p class="mt-2 text-sm font-bold">{{ stat.name }}</p>
+                <p class="text-xs text-gray-600">
+                  Base: {{ stat.base
+                  }}{{ stat.modifier ? ` Mod: ${stat.modifier}` : "" }}
+                </p>
+                <p class="text-xs text-gray-600">
+                  {{ stat.modifierDescription }}
+                </p>
               </div>
+            </div>
 
-              <p class="mt-2 text-sm font-bold">{{ stat.name }}</p>
-              <p class="text-xs text-gray-600">
-                Base: {{ stat.base
-                }}{{ stat.modifier ? ` Mod: ${stat.modifier}` : "" }}
-              </p>
+            <!-- Avatar (1x1 in center) -->
+            <div class="flex flex-col items-center col-span-1">
+              <img
+                :src="avatar"
+                alt="Character Avatar"
+                class="w-24 h-24 rounded-full border border-gray-500"
+              />
+            </div>
+
+            <!-- Second Stat Block (2x2) -->
+            <div class="grid grid-cols-2 gap-4 col-span-2">
+              <div
+                v-for="(stat, index) in stats.slice(4)"
+                :key="index"
+                class="flex flex-col items-center"
+              >
+                <div
+                  class="circle w-16 h-16 border-2 border-gray-500 rounded-full flex items-center justify-center text-xl font-bold"
+                >
+                  &nbsp;
+                </div>
+                <p class="mt-2 text-sm font-bold">{{ stat.name }}</p>
+                <p class="text-xs text-gray-600">
+                  Base: {{ stat.base
+                  }}{{ stat.modifier ? ` Mod: ${stat.modifier}` : "" }}
+                </p>
+                <p class="text-xs text-gray-600">
+                  {{ stat.modifierDescription }}
+                </p>
+              </div>
             </div>
           </div>
         </div>
 
+        <div class="grid grid-cols-2">
+          <!-- Vulnerabilities Section -->
+          <div v-if="vulnerabilities.length" class="vulnerabilities mb-4">
+            <h2 class="text-sm font-bold">Vulnerabilities</h2>
+            <ul class="list-disc list-inside text-xs text-gray-600">
+              <li
+                v-for="(vulnerability, index) in vulnerabilities"
+                :key="index"
+                class="flex items-center space-x-2"
+              >
+                <Icon :icon="vulnerability.icon" class="w-4 h-4" />
+                <span>{{ vulnerability.name }}</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Racials Section -->
+          <div v-if="racials.length" class="racials mb-4">
+            <h2 class="text-sm font-bold">Racials</h2>
+            <ul class="list-disc list-inside text-xs text-gray-600">
+              <li
+                v-for="(racial, index) in racials"
+                :key="index"
+                class="flex items-center space-x-2"
+              >
+                <Icon :icon="racial.icon" class="w-4 h-4" />
+                <span>{{ racial.name }}</span>
+              </li>
+            </ul>
+          </div>
+        </div>
         <!-- Abilities Section -->
         <div class="abilities my-4 space-y-4">
           <!-- Resource Section -->
@@ -138,9 +206,21 @@ export default {
       type: Array,
       default: () => [],
     },
+    vulnerabilities: {
+      type: Array,
+      default: () => [], // Ensures vulnerabilities is always defined as an array
+    },
+    racials: {
+      type: Array,
+      default: () => [], // Ensures racials is always defined as an array
+    },
     showImage: {
       type: Boolean,
       default: true,
+    },
+    avatar: {
+      type: String,
+      default: "",
     },
   },
 };
