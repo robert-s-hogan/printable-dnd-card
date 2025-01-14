@@ -39,8 +39,15 @@
                 </div>
                 <p class="mt-2 text-sm font-bold">{{ stat.name }}</p>
                 <p class="text-xs text-gray-600">
-                  Base: {{ stat.base
-                  }}{{ stat.modifier ? ` Mod: ${stat.modifier}` : "" }}
+                  {{ stat.base }}&nbsp;{{
+                    stat.modifier
+                      ? `${
+                          stat.modifier > 0
+                            ? `+${stat.modifier}`
+                            : stat.modifier
+                        }`
+                      : ""
+                  }}
                 </p>
                 <p class="text-xs text-gray-600">
                   {{ stat.modifierDescription }}
@@ -71,9 +78,17 @@
                 </div>
                 <p class="mt-2 text-sm font-bold">{{ stat.name }}</p>
                 <p class="text-xs text-gray-600">
-                  Base: {{ stat.base
-                  }}{{ stat.modifier ? ` Mod: ${stat.modifier}` : "" }}
+                  {{ stat.base }}&nbsp;{{
+                    stat.modifier
+                      ? `${
+                          stat.modifier > 0
+                            ? `+${stat.modifier}`
+                            : stat.modifier
+                        }`
+                      : ""
+                  }}
                 </p>
+
                 <p class="text-xs text-gray-600">
                   {{ stat.modifierDescription }}
                 </p>
