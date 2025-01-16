@@ -108,7 +108,11 @@
                 class="flex items-center space-x-2"
               >
                 <Icon :icon="vulnerability.icon" class="w-4 h-4" />
-                <span>{{ vulnerability.name }}</span>
+                <span
+                  >{{ vulnerability.name }} ({{
+                    vulnerability.description
+                  }})</span
+                >
               </li>
             </ul>
           </div>
